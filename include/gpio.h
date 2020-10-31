@@ -6,6 +6,11 @@
 #define EEPROG_GPIO_H
 
 namespace gpio {
+    // Register offsets (also from the BCM2835 datasheet)
+    constexpr unsigned int SET_REGS_OFFSET = 0x07;
+    constexpr unsigned int RESET_REGS_OFFSET = 0x0A;
+    constexpr unsigned int VAL_REGS_OFFSET = 0x0D;
+
     // Base functions i=to interface GPIO device
     volatile void *map_gpio();
     void unmap_gpio(volatile void *gpio);
@@ -16,7 +21,7 @@ namespace gpio {
     };
 
     enum PinValue {
-        SET, RESET
+        SET = 1, RESET = 0
     };
 
     void set_pin_mode(int pin, PinMode mode);

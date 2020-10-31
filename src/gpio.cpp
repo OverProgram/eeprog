@@ -12,10 +12,6 @@ namespace gpio {
     constexpr unsigned int PAGE_SIZE = 4096;
     constexpr unsigned int GPIO_OFFSET = 0x200000; // From the BCM2835 datasheet
 
-    // Register offsets (also from the BCM2835 datasheet)
-    constexpr unsigned int SET_REGS_OFFSET = 0x07;
-    constexpr unsigned int RESET_REGS_OFFSET = 0x0A;
-    constexpr unsigned int VAL_REGS_OFFSET = 0x0D;
 
     volatile void *map_gpio() {
         int mem_fd = open("/dev/gpiomem", O_RDWR | O_SYNC);
